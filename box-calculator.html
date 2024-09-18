@@ -19,6 +19,8 @@
             max-width: 600px;
             background-color: #222;
             border-radius: 10px;
+            z-index: 1; /* Ensure this stays above the boxes */
+            position: relative;
         }
         h1, h3 {
             color: #0baf4e; /* Accent color */
@@ -34,14 +36,11 @@
             margin-bottom: 15px;
             width: 150px; /* Original size */
         }
-        input[type="number"] {
-            step: any; /* Allow any decimal */
-        }
         button {
             background-color: #0baf4e;
             color: white;
             cursor: pointer;
-            display: block; /* Ensure button is on a new line */
+            display: block;
             width: 100%; /* Stretch button to fill container */
             margin-top: 10px; /* Add space above the button */
         }
@@ -71,6 +70,30 @@
             text-align: right;
             margin-top: 20px;
             color: #aaa;
+        }
+
+        /* Box container styling */
+        .box-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap-reverse;
+            flex-direction: row;
+            align-items: flex-end;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Box styling */
+        .box {
+            width: 50px;
+            height: 50px;
+            background-image: url('box.png'); /* Replace with the correct image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 2px; /* Spacing between boxes */
         }
     </style>
 </head>
@@ -108,6 +131,8 @@
         <!-- Footer -->
         <div class="footer">Made by Caleb Martinez</div>
     </div>
+
+    <div id="boxContainer" class="box-container"></div>
 
     <script src="box-calculator.js"></script>
 </body>
