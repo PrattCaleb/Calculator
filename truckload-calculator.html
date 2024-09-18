@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truckload Calculator</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            background-image: url('background.png');
+            background-size: cover;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 600px; 
+            background-color: #222;
+            border-radius: 10px;
+        }
+        h1, h3 {
+            color: #0baf4e;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="number"], button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 150px;
+        }
+        input[type="number"] {
+            step: any;
+        }
+        button {
+            background-color: #0baf4e;
+            color: white;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .result {
+            margin: 15px 0;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .result div {
+            margin-bottom: 10px;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .nav-bar a {
+            color: #0baf4e;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            font-size: small;
+            text-align: right;
+            margin-top: 20px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="nav-bar">
+            <a href="truckload-calculator.html">Truckload Calculator</a>
+            <a href="freight-rate-calculator.html">Freight Rate Calculator</a>
+            <a href="box-calculator.html">Box Calculator</a>
+        </div>
+
+        <h1>Truckload Calculator</h1>
+        <form id="calculatorForm">          
+            <label for="width">Unit Width (in inches):</label>
+            <input type="number" id="width" required step="any">
+            
+            <label for="length">Unit Length (in inches):</label>
+            <input type="number" id="length" required step="any">
+            
+            <label for="height">Unit Height (in inches):</label>
+            <input type="number" id="height" value="48" step="any">
+            
+            <label for="quantity">Qty of Boxes Per Unit:</label>
+            <input type="number" id="quantity" step="any">
+            
+            <label for="tolerance">Tolerance (in inches):</label>
+            <input type="number" id="tolerance" step="any" title="Adds X inches to all sides of the unit as a tolerance">
+            
+            <label for="doubleStack">Double Stack:</label>
+            <input type="checkbox" id="doubleStack" checked>
+            
+            <label for="pinwheel">Pinwheel:</label>
+            <input type="checkbox" id="pinwheel">
+            
+            <label for="downstacking">Downstacking:</label>
+            <input type="checkbox" id="downstacking">
+            
+            <!-- Calculate Button -->
+            <button type="submit">Calculate</button>
+        </form>
+
+        <!-- Results Section -->
+        <div class="result">
+            <h3>Results:</h3>
+            <div id="orientation1Result"></div>
+            <div id="orientation2Result"></div>
+            <div id="pinwheelResult"></div>
+        </div>
+
+        <div class="footer">Made by Caleb Martinez</div>
+    </div>
+
+    <script src="truckload-calculator.js"></script>
+</body>
+</html>
